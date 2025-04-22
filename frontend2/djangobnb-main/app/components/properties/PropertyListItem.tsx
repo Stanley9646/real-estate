@@ -7,7 +7,9 @@ interface PropertyProps {
     property: PropertyType,
     markFavorite?: (is_favorite: boolean) => void;
 }
-
+const getValidImageUrl = (url: string) => {
+    return url.replace("8000", "8001"); // if 8001 is your real backend
+  };
 const PropertyListItem: React.FC<PropertyProps> = ({
     property,
     markFavorite
@@ -22,10 +24,10 @@ const PropertyListItem: React.FC<PropertyProps> = ({
             <div className="relative overflow-hidden aspect-square rounded-xl">
                 <Image
                     fill
-                    src={property.image_url}
+                    src={getValidImageUrl(property.image_url)}
                     sizes="(max-width: 768px) 768px, (max-width: 1200px): 768px, 768px"
                     className="hover:scale-110 object-cover transition h-full w-full"
-                    alt="Beach house"
+                    alt="property"
                 />
 
                 {markFavorite && (

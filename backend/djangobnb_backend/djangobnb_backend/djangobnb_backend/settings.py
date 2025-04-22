@@ -215,6 +215,7 @@ import os
 from datetime import timedelta
 from pathlib import Path
 from dotenv import load_dotenv
+import mimetypes
 
 load_dotenv()
 
@@ -386,3 +387,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+mimetypes.add_type("image/webp", ".webp", True)
